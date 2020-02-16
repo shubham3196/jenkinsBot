@@ -1,0 +1,7 @@
+{
+  "slack_bot_token":"<paste token here!!!>",
+  "slack_signing_secret":"<paste secret here!!!>",
+  "url":"<paste jenkins url here!!!>",
+  "username":"<paste jenkins username here!!!>",
+  "password":"<paste jenkins user password here!!!>"
+}
