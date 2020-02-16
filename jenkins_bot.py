@@ -8,8 +8,8 @@ with open('configs.json') as json_data:
     tokens = json.load(json_data)
 
 #Slack channels
-devops_channel = ['GGF483V5E']
-dev_channel = ['GHEHSVDHN']
+devops_channel = ['<input slack channel ID here !!!>']
+dev_channel = ['<input slack channel ID here !!!>']
 
 # Fixed tokens
 dev_assist_msg = "\nFor you convenience in CI/CD ,I can assist you in the following tasks :construction_worker::\n1. Use *\"@Jenkins view <viewName>\"* to list all the jobs in given view.\n2. Use *\"@Jenkins list view\"* to list all the view.\n3. Use *\"@Jenkins list jobs\"* to list all jobs in jenkins.\n4. Use *\"@Jenkins list plugins\"* to list all the plugins with installed version."
@@ -43,8 +43,8 @@ def app_mention(event_data):
         data = event_data["event"]
         channel = data["channel"]
         user_text = data["text"]
-        user_text = user_text.replace('<@UGGCWSEHF> ', '')
-        text = user_text.replace('<@UGGCWSEHF> ', '').lower()
+        user_text = user_text.replace('<add the private message channel id !!!> ', '')
+        text = user_text.replace('<add the private message channel id !!!> ', '').lower()
 	if any(x in text for x in version):
 	    message = get_version(get_jenkins_instance())
 	    slack_client.api_call(
@@ -116,7 +116,7 @@ def app_mention(event_data):
 def list_plugins(server):
     try:
 	send_data = "List of plugins and their version in the Jenkins Server:- :memo:\n"
-	response = requests.get('http://slack:d36af685693d3394f58c116edfb1607e@35.154.209.120:8080/pluginManager/api/json?depth=1&?xpath=/*/*shortName|/*/*/version')
+	response = requests.get('http://slack:<workspace id !!!>@<jenkins IP !!!>:8080/pluginManager/api/json?depth=1&?xpath=/*/*shortName|/*/*/version')
 	data = response.json()['plugins']
 	for plugin in data:
     	    send_data += "*{}* : {}\n".format(plugin["shortName"], plugin["version"])
